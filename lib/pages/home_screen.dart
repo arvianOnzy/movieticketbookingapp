@@ -16,7 +16,7 @@ import '../controllers/auth_controller.dart';
 import '../utils/custom_slider.dart';
 import '../utils/dummy_data.dart';
 import '../utils/event_items.dart';
-import '../utils/menu_item.dart';
+import '../utils/menu_item.dart' as menu;
 import '../utils/movies_item.dart';
 import '../utils/mytheme.dart';
 
@@ -40,7 +40,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
-    SharedPref.getLocation().then((value) => LocationController.instance.setCity(value));
+    SharedPref.getLocation()
+        .then((value) => LocationController.instance.setCity(value));
     super.initState();
   }
 
@@ -53,7 +54,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(statusBarColor: MyTheme.statusBar));
+    SystemChrome.setSystemUIOverlayStyle(
+        const SystemUiOverlayStyle(statusBarColor: MyTheme.statusBar));
     String? picUrl = AuthController.instance.user!.photoURL;
     picUrl = picUrl ?? Constants.dummyAvatar;
     return SafeArea(
@@ -94,10 +96,14 @@ class _HomeScreenState extends State<HomeScreen> {
                         Obx(
                           () => Text(
                             LocationController.instance.city.value,
-                            style: TextStyle(color: Colors.white.withOpacity(0.7), inherit: true, fontSize: 14),
+                            style: TextStyle(
+                                color: Colors.white.withOpacity(0.7),
+                                inherit: true,
+                                fontSize: 14),
                           ),
                         ),
-                        Icon(Icons.keyboard_arrow_down, color: Colors.white.withOpacity(0.7)),
+                        Icon(Icons.keyboard_arrow_down,
+                            color: Colors.white.withOpacity(0.7)),
                       ],
                     ),
                   ),
@@ -144,26 +150,33 @@ class _HomeScreenState extends State<HomeScreen> {
                   padding: const EdgeInsets.only(left: 20.0, top: 20),
                   child: Text(
                     "SEAT CATEGORIES",
-                    style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black.withOpacity(0.8)),
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black.withOpacity(0.8)),
                   ),
                 ),
-                const MenuItem(),
+                const menu.MenuItem(),
                 Padding(
                   padding: const EdgeInsets.only(left: 20.0, top: 10),
                   child: Text(
                     "RECOMMENDED SEATS",
-                    style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black.withOpacity(0.8)),
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black.withOpacity(0.8)),
                   ),
                 ),
                 const MoviesItems(),
                 Padding(
-                  padding: const EdgeInsets.only(left: 20.0, top: 10, right: 20),
+                  padding:
+                      const EdgeInsets.only(left: 20.0, top: 10, right: 20),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
                         "Nearby theatres".toUpperCase(),
-                        style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black.withOpacity(0.8)),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black.withOpacity(0.8)),
                       ),
                       TextButton(
                         onPressed: () {},
@@ -193,7 +206,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 20.0, top: 10, right: 20),
+                  padding:
+                      const EdgeInsets.only(left: 20.0, top: 10, right: 20),
                   child: Row(
                     children: [
                       SvgPicture.asset(
@@ -207,7 +221,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       Text(
                         "Events".toUpperCase(),
-                        style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black.withOpacity(0.8)),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black.withOpacity(0.8)),
                       ),
                       const Spacer(),
                       TextButton(
@@ -224,7 +240,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   events: events,
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 20.0, top: 10, right: 20),
+                  padding:
+                      const EdgeInsets.only(left: 20.0, top: 10, right: 20),
                   child: Row(
                     children: [
                       SvgPicture.asset(
@@ -238,7 +255,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       Text(
                         "Plays".toUpperCase(),
-                        style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black.withOpacity(0.8)),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black.withOpacity(0.8)),
                       ),
                       const Spacer(),
                       TextButton(

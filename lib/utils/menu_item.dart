@@ -23,7 +23,7 @@ class MenuItem extends StatelessWidget {
               onTap: () {
                 print(menus[i].name);
                 //sending argument to next page
-                Get.to(() => ViewAllScreen(), arguments: menus[i]);
+                Get.to(() => const ViewAllScreen(), arguments: menus[i]);
               },
               child: Column(
                 children: [
