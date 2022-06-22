@@ -29,7 +29,8 @@ class FacilitesBottomSheet extends StatelessWidget {
             children: [
               Container(
                 height: 150,
-                decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(10)),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: GoogleMap(
@@ -65,8 +66,9 @@ class FacilitesBottomSheet extends StatelessWidget {
                       ),
                     ),
                     TextSpan(
-                      text: LocationController.instance.city.value,
-                      style: const TextStyle(color: Color(0xff999999), fontSize: 14),
+                      text: LocationController.instance.city!.value,
+                      style: const TextStyle(
+                          color: Color(0xff999999), fontSize: 14),
                     ),
                   ],
                 ),

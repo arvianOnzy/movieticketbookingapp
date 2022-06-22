@@ -73,7 +73,7 @@ class TheatreBlock extends StatelessWidget {
                         ),
                       ),
                       TextSpan(
-                        text: LocationController.instance.city.value + ", ",
+                        text: LocationController.instance.city!.value + ", ",
                         style: const TextStyle(color: Color(0xff999999)),
                       ),
                       const TextSpan(
@@ -95,8 +95,12 @@ class TheatreBlock extends StatelessWidget {
                 4,
                 (index) {
                   //for dummy data
-                  bool isSelected = index == SeatSelectionController.instance.timeSelectedIndex.value && isBooking;
-                  Color color = index % 2 == 0 ? MyTheme.orangeColor : MyTheme.greenColor;
+                  bool isSelected = index ==
+                          SeatSelectionController
+                              .instance.timeSelectedIndex.value &&
+                      isBooking;
+                  Color color =
+                      index % 2 == 0 ? MyTheme.orangeColor : MyTheme.greenColor;
                   return GestureDetector(
                     onTap: () {
                       //to seat selection
@@ -105,17 +109,23 @@ class TheatreBlock extends StatelessWidget {
                     child: AnimatedContainer(
                       duration: const Duration(milliseconds: 300),
                       decoration: BoxDecoration(
-                        color: isSelected ? MyTheme.greenColor : const Color(0x22E5E5E5),
+                        color: isSelected
+                            ? MyTheme.greenColor
+                            : const Color(0x22E5E5E5),
                         borderRadius: BorderRadius.circular(5),
                         border: Border.all(
                           width: 1,
-                          color: isSelected ? MyTheme.greenColor : const Color(0xffE5E5E5),
+                          color: isSelected
+                              ? MyTheme.greenColor
+                              : const Color(0xffE5E5E5),
                         ),
                       ),
-                      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 15, vertical: 10),
                       child: Text(
                         model.timings[index],
-                        style: TextStyle(color: isSelected ? Colors.white : color),
+                        style:
+                            TextStyle(color: isSelected ? Colors.white : color),
                       ),
                     ),
                   );

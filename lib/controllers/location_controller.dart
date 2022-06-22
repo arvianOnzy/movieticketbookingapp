@@ -5,7 +5,7 @@ import 'package:movieticketbookingapp/controllers/shared_pref.dart';
 import 'package:movieticketbookingapp/utils/dummy_data.dart';
 
 class LocationController extends GetxController {
-  late RxString city;
+  RxString? city;
   RxBool isLocating = false.obs;
   static LocationController instance = Get.find();
 

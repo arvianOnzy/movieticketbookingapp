@@ -95,7 +95,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         Obx(
                           () => Text(
-                            LocationController.instance.city.value,
+                            LocationController.instance.city!.value,
                             style: TextStyle(
                                 color: Colors.white.withOpacity(0.7),
                                 inherit: true,
